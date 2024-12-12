@@ -3,7 +3,7 @@
     <v-app-bar-nav-icon 
       @click="drawer = !drawer"
     />
-    <v-toolbar-title>Title</v-toolbar-title>
+    <v-toolbar-title>LLM System</v-toolbar-title>
   </v-toolbar>
   <v-navigation-drawer
     v-model="drawer"
