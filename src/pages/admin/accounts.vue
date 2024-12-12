@@ -4,9 +4,37 @@
     <v-row>
       <v-col cols="12">
         <v-card>
-          <v-card-title>Accounts</v-card-title>
+          <v-card-title>
+            <div class="d-flex justify-space-between">
+              <span>Account</span>
+              <v-btn
+                color="primary"
+                @click="addAccount"
+              >
+                Add Account
+              </v-btn>
+            </div>
+          </v-card-title>
           <v-card-text>
-            <v-data-table :items="datatableitems" />
+            <v-data-table
+              :items="datatableitems"
+              :search="search"
+            >
+              <template #top>
+                <div class="d-flex justify-space-between">
+                  <v-text-field
+                    v-model="search"
+                    append-icon="mdi-magnify"
+                    label="Search"
+                    variant="outlined"
+                    density="compact"
+                    single-line
+                    hide-details
+                    max-width="300"
+                  />
+                </div>
+              </template>
+            </v-data-table>
           </v-card-text>
         </v-card>
       </v-col>
@@ -26,6 +54,8 @@ definePage({
   },
 });
 
+const search = ref('');
+
 
 const datatableitems = ref([
   { name: 'Company 1', status: 'Active', users: 10, test: 'test' },
@@ -39,4 +69,9 @@ const datatableitems = ref([
   { name: 'Company 9', status: 'Active', users: 90, test: 'test' },
   { name: 'Company 10', status: 'Active', users: 100, test: 'test' },
 ]);
+
+const addAccount = () => {
+  // TODO: Add Account
+  console.log('Add Account');
+};
 </script>
