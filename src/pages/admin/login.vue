@@ -97,7 +97,7 @@ definePage({
   meta: {
     title: 'Login',
     description: 'The page for users to log in to their accounts.',
-    isNeedAuth: false,
+    requiresAuth: false,
   },
 });
 
@@ -127,8 +127,8 @@ const snackbar_options = reactive({
 const submit = () => {
   // TODO: Implement the login logic.
   if(input_email.value == 'test@test.com' && input_password.value == '12345678') {
-    localStorage.setItem('token', 'This.Will.Be.The.Token.JWT.Token');
-    router.push('/chat');
+    localStorage.setItem('token', 'This.Will.Be.The.Token.JWT.Token.admin');
+    router.push('/admin/dashboard');
   } else {
     // if need, it needs store in the database
     error_attemps.value++;
