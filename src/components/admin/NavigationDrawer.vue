@@ -1,7 +1,14 @@
 <template>
+  <v-toolbar app>
+    <v-app-bar-nav-icon 
+      @click="drawer = !drawer"
+    />
+    <v-toolbar-title>Title</v-toolbar-title>
+  </v-toolbar>
   <v-navigation-drawer
+    v-model="drawer"
     expand-on-hover
-    rail
+   
     app
   >
     <v-list>
@@ -15,26 +22,36 @@
     <v-divider />
 
     <v-list
+      v-model="page"
       density="compact"
       nav
     >
       <v-list-item
-        prepend-icon="mdi-home"
-        title="Home"
-        value="home"
         to="/admin/dashboard"
+        prepend-icon="mdi-home"
+        title="Dashboard"
+        value="dashboard"
       />
       <v-list-item
         prepend-icon="mdi-account-multiple"
         title="Accounts"
         value="accounts"
-        to="/admin/dashboard/accounts"
+        to="/admin/accounts"
       />
     </v-list>
   </v-navigation-drawer>
 </template>
 <script lang="ts" setup>
 import { ref } from 'vue';
+import { useRouter } from 'vue-router';
+const router = useRouter();
+
+const page = ref('home');
+
+// Set the current page based on the route.
+page.value = router.currentRoute.value.path.split('/').pop() || 'dashboard';
+
+
 
 const userInfo = ref({
   name: 'Ergon Admin',
@@ -42,5 +59,5 @@ const userInfo = ref({
   avatar: 'https://randomuser.me/api/portraits/women/85.jpg',
 });
 
-
+const drawer = ref(false);
 </script>
