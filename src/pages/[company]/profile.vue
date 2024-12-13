@@ -1,6 +1,8 @@
 <template>
   <CompanyDrawer />
-  Profile page
+  <v-main>
+    Profile page
+  </v-main>
 </template>
 <script lang="ts" setup>
 

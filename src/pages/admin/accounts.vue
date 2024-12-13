@@ -1,45 +1,47 @@
 <template>
   <NavigationDrawer />
-  <v-container>
-    <v-row>
-      <v-col cols="12">
-        <v-card>
-          <v-card-title>
-            <div class="d-flex justify-space-between">
-              <span>Account</span>
-              <v-btn
-                color="primary"
-                @click="addAccount"
+  <v-main app>
+    <v-container>
+      <v-row>
+        <v-col cols="12">
+          <v-card>
+            <v-card-title>
+              <div class="d-flex justify-space-between">
+                <span>Account</span>
+                <v-btn
+                  color="primary"
+                  @click="addAccount"
+                >
+                  Add Account
+                </v-btn>
+              </div>
+            </v-card-title>
+            <v-card-text>
+              <v-data-table
+                :items="datatableitems"
+                :search="search"
               >
-                Add Account
-              </v-btn>
-            </div>
-          </v-card-title>
-          <v-card-text>
-            <v-data-table
-              :items="datatableitems"
-              :search="search"
-            >
-              <template #top>
-                <div class="d-flex justify-space-between">
-                  <v-text-field
-                    v-model="search"
-                    append-icon="mdi-magnify"
-                    label="Search"
-                    variant="outlined"
-                    density="compact"
-                    single-line
-                    hide-details
-                    max-width="300"
-                  />
-                </div>
-              </template>
-            </v-data-table>
-          </v-card-text>
-        </v-card>
-      </v-col>
-    </v-row>
-  </v-container>
+                <template #top>
+                  <div class="d-flex justify-space-between">
+                    <v-text-field
+                      v-model="search"
+                      append-icon="mdi-magnify"
+                      label="Search"
+                      variant="outlined"
+                      density="compact"
+                      single-line
+                      hide-details
+                      max-width="300"
+                    />
+                  </div>
+                </template>
+              </v-data-table>
+            </v-card-text>
+          </v-card>
+        </v-col>
+      </v-row>
+    </v-container>
+  </v-main>
 </template>
 <script lang="ts" setup>
 import { ref } from 'vue';

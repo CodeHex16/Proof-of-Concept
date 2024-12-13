@@ -1,162 +1,164 @@
 <template>
   <NavigationDrawer />
-  <v-container>
-    <v-row>
-      <v-col cols="12">
-        <v-card>
-          <v-card-title>Dashboard</v-card-title>
-          <v-card-text>
-            Welcome to the dashboard.
-            <v-row>
-              <v-col
-                cols="12"
-                xs="6"
-                sm="3"
-                md="3"
-              >
-                <v-card color="green">
-                  <v-card-title>Total Companys</v-card-title>
-                  <v-card-text class="text-h3 text-right">
-                    52
-                  </v-card-text>
-                </v-card>
-              </v-col>
-              <v-col
-                cols="12"
-                xs="6"
-                sm="3"
-                md="3"
-              >
-                <v-card color="blue">
-                  <v-card-title>Total Users</v-card-title>
-                  <v-card-text class="text-h3 text-right">
-                    102
-                  </v-card-text>
-                </v-card>
-              </v-col>
-              <v-col
-                cols="12"
-                xs="6"
-                sm="3"
-                md="3"
-              >
-                <v-card color="red">
-                  <v-card-title>Total Chats</v-card-title>
-                  <v-card-text class="text-h3 text-right">
-                    102
-                  </v-card-text>
-                </v-card>
-              </v-col>
-              <v-col
-                cols="12"
-                xs="6"
-                sm="3"
-                md="3"
-              >
-                <v-card color="purple">
-                  <v-card-title>Total Messages</v-card-title>
-                  <v-card-text class="text-h3 text-right">
-                    102
-                  </v-card-text>
-                </v-card>
-              </v-col>
-            </v-row>
-          </v-card-text>
-        </v-card>
-      </v-col>
-
-
-      <v-col
-        cols="12"
-        md="6"
-        class="pa-4"
-      >
-        <v-card
-          class="mx-auto text-center"
-          dark
-        >
-          <v-card-title>Bar Chart</v-card-title>
-          <v-card-text>
-            <v-sheet color="rgba(0, 0, 0, .12)">
-              <Bar
-                :data="chart1.data"
-                :options="chart1.options"
-              />
-            </v-sheet>
-          </v-card-text>
-        </v-card>
-      </v-col>
-      <v-col
-        cols="12"
-        md="6"
-        class="pa-4"
-      >
-        <v-card
-          class="mx-auto text-center"
-          dark
-        >
-          <v-card-title>Line Chart</v-card-title>
-          <v-card-text>
-            <v-sheet color="rgba(0, 0, 0, .12)">
-              <Line
-                :data="chart2.data"
-                :options="chart2.options"
-              />
-            </v-sheet>
-          </v-card-text>
-        </v-card>
-      </v-col>
-
-
-
-      <v-col
-        cols="12"
-        md="4"
-      >
-        <v-card>
-          <v-card-title>Users</v-card-title>
-          <v-card-text>
-            <v-table
-              height="300px"
-              fixed-header
-            >
-              <thead>
-                <tr>
-                  <th class="text-left">
-                    Company
-                  </th>
-                  <th class="text-left">
-                    users
-                  </th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr
-                  v-for="item in users"
-                  :key="item.name"
+  <v-main>
+    <v-container>
+      <v-row>
+        <v-col cols="12">
+          <v-card>
+            <v-card-title>Dashboard</v-card-title>
+            <v-card-text>
+              Welcome to the dashboard.
+              <v-row>
+                <v-col
+                  cols="12"
+                  xs="6"
+                  sm="3"
+                  md="3"
                 >
-                  <td>{{ item.name }}</td>
-                  <td>{{ item.users }}</td>
-                </tr>
-              </tbody>
-            </v-table>
-          </v-card-text>
-        </v-card>
-      </v-col>
+                  <v-card color="green">
+                    <v-card-title>Total Companys</v-card-title>
+                    <v-card-text class="text-h3 text-right">
+                      52
+                    </v-card-text>
+                  </v-card>
+                </v-col>
+                <v-col
+                  cols="12"
+                  xs="6"
+                  sm="3"
+                  md="3"
+                >
+                  <v-card color="blue">
+                    <v-card-title>Total Users</v-card-title>
+                    <v-card-text class="text-h3 text-right">
+                      102
+                    </v-card-text>
+                  </v-card>
+                </v-col>
+                <v-col
+                  cols="12"
+                  xs="6"
+                  sm="3"
+                  md="3"
+                >
+                  <v-card color="red">
+                    <v-card-title>Total Chats</v-card-title>
+                    <v-card-text class="text-h3 text-right">
+                      102
+                    </v-card-text>
+                  </v-card>
+                </v-col>
+                <v-col
+                  cols="12"
+                  xs="6"
+                  sm="3"
+                  md="3"
+                >
+                  <v-card color="purple">
+                    <v-card-title>Total Messages</v-card-title>
+                    <v-card-text class="text-h3 text-right">
+                      102
+                    </v-card-text>
+                  </v-card>
+                </v-col>
+              </v-row>
+            </v-card-text>
+          </v-card>
+        </v-col>
 
-      <v-col
-        cols="12"
-        md="8"
-      >
-        <v-card>
-          <v-card-title>Users</v-card-title>
-          <v-card-text>
-            <v-data-table :items="datatableitems" />
-          </v-card-text>
-        </v-card>
-      </v-col>
-    </v-row>
-  </v-container>
+
+        <v-col
+          cols="12"
+          md="6"
+          class="pa-4"
+        >
+          <v-card
+            class="mx-auto text-center"
+            dark
+          >
+            <v-card-title>Bar Chart</v-card-title>
+            <v-card-text>
+              <v-sheet color="rgba(0, 0, 0, .12)">
+                <Bar
+                  :data="chart1.data"
+                  :options="chart1.options"
+                />
+              </v-sheet>
+            </v-card-text>
+          </v-card>
+        </v-col>
+        <v-col
+          cols="12"
+          md="6"
+          class="pa-4"
+        >
+          <v-card
+            class="mx-auto text-center"
+            dark
+          >
+            <v-card-title>Line Chart</v-card-title>
+            <v-card-text>
+              <v-sheet color="rgba(0, 0, 0, .12)">
+                <Line
+                  :data="chart2.data"
+                  :options="chart2.options"
+                />
+              </v-sheet>
+            </v-card-text>
+          </v-card>
+        </v-col>
+
+
+
+        <v-col
+          cols="12"
+          md="4"
+        >
+          <v-card>
+            <v-card-title>Users</v-card-title>
+            <v-card-text>
+              <v-table
+                height="300px"
+                fixed-header
+              >
+                <thead>
+                  <tr>
+                    <th class="text-left">
+                      Company
+                    </th>
+                    <th class="text-left">
+                      users
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr
+                    v-for="item in users"
+                    :key="item.name"
+                  >
+                    <td>{{ item.name }}</td>
+                    <td>{{ item.users }}</td>
+                  </tr>
+                </tbody>
+              </v-table>
+            </v-card-text>
+          </v-card>
+        </v-col>
+
+        <v-col
+          cols="12"
+          md="8"
+        >
+          <v-card>
+            <v-card-title>Users</v-card-title>
+            <v-card-text>
+              <v-data-table :items="datatableitems" />
+            </v-card-text>
+          </v-card>
+        </v-col>
+      </v-row>
+    </v-container>
+  </v-main>
 </template>
 <script lang="ts" setup>
 import { ref } from 'vue';

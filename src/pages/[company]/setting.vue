@@ -1,38 +1,39 @@
 <template>
   <CompanyDrawer />
+  <v-main>
+    <v-list lines="three">
+      <v-list-subheader>User Controls</v-list-subheader>
+      <v-list-item
+        v-for="item in userControls"
+        :key="item.title"
+        :subtitle="item.subtitle"
+        :title="item.title"
+      />
+    </v-list>
 
-  <v-list lines="three">
-    <v-list-subheader>User Controls</v-list-subheader>
-    <v-list-item
-      v-for="item in userControls"
-      :key="item.title"
-      :subtitle="item.subtitle"
-      :title="item.title"
-    />
-  </v-list>
+    <v-divider />
 
-  <v-divider />
-
-  <v-list
-    v-model:selected="settingsSelection"
-    lines="three"
-    select-strategy="leaf"
-  >
-    <v-list-subheader>General</v-list-subheader>
-    <v-list-item
-      v-for="item in settingsItems"
-      :key="item.value"
-      :subtitle="item.subtitle"
-      :title="item.title"
-      :value="item.value"
+    <v-list
+      v-model:selected="settingsSelection"
+      lines="three"
+      select-strategy="leaf"
     >
-      <template #prepend="{ isSelected }">
-        <v-list-item-action start>
-          <v-checkbox-btn :model-value="isSelected" />
-        </v-list-item-action>
-      </template>
-    </v-list-item>
-  </v-list>
+      <v-list-subheader>General</v-list-subheader>
+      <v-list-item
+        v-for="item in settingsItems"
+        :key="item.value"
+        :subtitle="item.subtitle"
+        :title="item.title"
+        :value="item.value"
+      >
+        <template #prepend="{ isSelected }">
+          <v-list-item-action start>
+            <v-checkbox-btn :model-value="isSelected" />
+          </v-list-item-action>
+        </template>
+      </v-list-item>
+    </v-list>
+  </v-main>
 </template>
 <script lang="ts" setup>
 import { reactive } from 'vue';
