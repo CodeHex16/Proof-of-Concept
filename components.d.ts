@@ -7,6 +7,7 @@ export {}
 /* prettier-ignore */
 declare module 'vue' {
   export interface GlobalComponents {
+    CompanyDrawer: typeof import('./src/components/company/CompanyDrawer.vue')['default']
     HelloWorld: typeof import('./src/components/HelloWorld.vue')['default']
     NavigationDrawer: typeof import('./src/components/admin/NavigationDrawer.vue')['default']
     PageHeader: typeof import('./src/components/PageHeader.vue')['default']
