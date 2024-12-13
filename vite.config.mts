@@ -33,6 +33,7 @@ export default defineConfig({
       },
     }),
   ],
+  base: '/proof-of-concept',
   define: { 'process.env': {} },
   resolve: {
     alias: {
