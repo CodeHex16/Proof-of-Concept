@@ -10,8 +10,8 @@ import { defineConfig } from 'vite'
 import { fileURLToPath, URL } from 'node:url'
 
 // https://vitejs.dev/config/
-export default defineConfig({
-  plugins: [
+export default defineConfig(({ mode })=>{
+  return {plugins: [
     VueRouter(),
     Vue({
       template: { transformAssetUrls },
@@ -33,7 +33,7 @@ export default defineConfig({
       },
     }),
   ],
-  base: '/proof-of-concept',
+  base: mode === 'production' ? '/myapp/' : '/', 
   define: { 'process.env': {} },
   resolve: {
     alias: {
@@ -59,4 +59,5 @@ export default defineConfig({
       },
     },
   },
-})
+}}
+)
