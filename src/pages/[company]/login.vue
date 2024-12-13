@@ -1,9 +1,11 @@
 <template>
-  <v-img
+  <!-- <v-img
     class="mx-auto my-6 logo"
     max-width="228"
     :src="Logo"
-  />
+  /> -->
+  <!-- TODO: dynamic change to company logo-->
+  <h1>{{ route.params.company }} Login</h1>
 
   <v-card
     class="mx-auto pa-12 pb-8"
@@ -88,9 +90,10 @@
 </template>
 <script lang="ts" setup>
 import { ref,reactive } from 'vue';
-import { useRouter } from 'vue-router';
+import { useRouter, useRoute } from 'vue-router';
 const router = useRouter();
-import Logo from '@/assets/logo.png';
+const route = useRoute();
+// import Logo from '@/assets/logo.png';
 import rules from '@/utils/rules';
 
 definePage({

@@ -39,9 +39,10 @@ definePage({
     title: 'Chat',
     description: 'The page for users to chat with our company.',
     requiresAuth: true,
+    adminOnly: false,
   },
 });
-
+import { ref } from 'vue';
 import { useRoute,useRouter } from 'vue-router';
 const route = useRoute();
 const router = useRouter();
@@ -55,8 +56,6 @@ if (!companies.value.find((company) => company.name === route.params.company)) {
   router.push('/404');
 }
 
-import { ref } from 'vue';
-import CompanyDrawer from '@/components/company/CompanyDrawer.vue';
 
 const drawer = ref(true);
 //

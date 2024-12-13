@@ -179,7 +179,7 @@ definePage({
     title: 'Dashboard',
     description: 'The page for administrators to manage the system.',
     requiresAuth: true,
-    authLevel: 'admin',
+    adminOnly: true,
   },
 });
 
