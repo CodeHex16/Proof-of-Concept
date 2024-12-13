@@ -1,13 +1,7 @@
 <template>
-  <CompanyDrawer
-    app
-    @test="()=>(drawer=!drawer)"
-  />
+  <CompanyDrawer @test="()=>(drawer=!drawer)" app/>
 
-  <v-navigation-drawer
-    v-model="drawer"
-    app
-  >
+  <v-navigation-drawer v-model="drawer" app>
     <h2 class="pa-2"> 
       Chats
     </h2>
@@ -48,6 +42,18 @@ definePage({
   },
 });
 
+import { useRoute,useRouter } from 'vue-router';
+const route = useRoute();
+const router = useRouter();
+
+const companies = ref([
+  { name: 'Ergon', users: 10 },
+  { name: 'Test', users: 20 },
+]);
+
+if (!companies.value.find((company) => company.name === route.params.company)) {
+  router.push('/404');
+}
 
 import { ref } from 'vue';
 import CompanyDrawer from '@/components/company/CompanyDrawer.vue';

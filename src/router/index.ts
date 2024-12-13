@@ -30,6 +30,12 @@ router.onError((err, to) => {
 
 // Add a Login Guard
 router.beforeEach((to, from, next) => {
+  // check page is exists, if not redirect to 404
+  if (!to.matched.length) {
+    next('/404')
+  }
+
+
   if (to.meta.requiresAuth && !localStorage.getItem('token')) {
 
     if(to.path.startsWith('/admin')) {
