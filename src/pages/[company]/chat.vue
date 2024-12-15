@@ -137,7 +137,7 @@ definePage({
     adminOnly: false,
   },
 });
-import { ref, onMounted, onRenderTracked } from 'vue';
+import { ref, onMounted } from 'vue';
 import { useRoute,useRouter } from 'vue-router';
 const route = useRoute();
 const router = useRouter();
