@@ -39,6 +39,14 @@
         to="/admin/accounts"
       />
     </v-list>
+
+    <template v-slot:append>
+          <div class="pa-2">
+            <v-btn  @click="toggleTheme" icon="mdi-theme-light-dark" variant="text">
+            </v-btn>
+          </div>
+        </template>
+
   </v-navigation-drawer>
 </template>
 <script lang="ts" setup>
@@ -60,4 +68,12 @@ const userInfo = ref({
 });
 
 const drawer = ref(false);
+
+import { useTheme } from 'vuetify'
+
+const theme = useTheme()
+
+function toggleTheme () {
+  theme.global.name.value = theme.global.current.value.dark ? 'light' : 'dark'
+}
 </script>

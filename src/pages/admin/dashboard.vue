@@ -74,7 +74,6 @@
         >
           <v-card
             class="mx-auto text-center"
-            dark
           >
             <v-card-title>Bar Chart</v-card-title>
             <v-card-text>
@@ -94,7 +93,7 @@
         >
           <v-card
             class="mx-auto text-center"
-            dark
+       
           >
             <v-card-title>Line Chart</v-card-title>
             <v-card-text>

@@ -1,6 +1,5 @@
 <template>
   <v-navigation-drawer
-    theme="dark"
     permanent
     rail
     app
@@ -30,6 +29,13 @@
         :to="page!='setting' ? 'setting' : undefined"
       />
     </v-list>
+    <template v-slot:append>
+          <div class="pa-2">
+            <v-btn  @click="toggleTheme" icon="mdi-theme-light-dark" variant="text">
+            </v-btn>
+          </div>
+        </template>
+
   </v-navigation-drawer>
 </template>
 
@@ -55,4 +61,11 @@ const onSelect = (value: {
 };
 
 
+import { useTheme } from 'vuetify'
+
+const theme = useTheme()
+
+function toggleTheme () {
+  theme.global.name.value = theme.global.current.value.dark ? 'light' : 'dark'
+}
 </script>
