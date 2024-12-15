@@ -36,3 +36,5 @@ jobs:
           publish_dir: ./dist  # 确保这是构建输出目录
           publish_branch: vuejs_dist  # 部署到的分支
           commit_message: 'Deploy Vue.js app to GitHub Pages'
+          user_name: 'github-actions[bot]'
+          user_email: 'github-actions[bot]@users.noreply.github.com'
