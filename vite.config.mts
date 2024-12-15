@@ -33,7 +33,7 @@ export default defineConfig(({ mode })=>{
       },
     }),
   ],
-  base: mode === 'production' ? '/myapp/' : '/', 
+  base: mode === 'production' ? '/proof-of-concept/' : '/', 
   define: { 'process.env': {} },
   resolve: {
     alias: {
