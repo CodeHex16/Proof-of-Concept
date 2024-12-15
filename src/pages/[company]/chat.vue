@@ -75,7 +75,7 @@
       <template #default="{ item, /**index**/ }">
         <div
           v-if="item.user === 'chatbot'"
-          class="d-flex justify-end pa-2"
+          class="d-flex justify-start pa-2"
         >
           <v-card
             class="pa-2"
@@ -92,7 +92,7 @@
 
         <div
           v-else
-          class="d-flex justify-start pa-2"
+          class="d-flex justify-end pa-2"
         >
           <v-card
             class="pa-2"
@@ -137,7 +137,7 @@ definePage({
     adminOnly: false,
   },
 });
-import { ref, onMounted } from 'vue';
+import { ref, onMounted, onRenderTracked } from 'vue';
 import { useRoute,useRouter } from 'vue-router';
 const route = useRoute();
 const router = useRouter();
@@ -179,10 +179,16 @@ onMounted(() => {
 const sendMessage = () => {
   messages.value.push({
     id: messages.value[messages.value.length - 1]?.id + 1,
-    user: users[random(0, 1)],
-    message: generateChatMessages(),
+    user: users[1],
+    message: input.value,
     timestamp: (messages.value[messages.value.length - 1]?.timestamp ?? Date.now() - 10000) + random(1000, 10000)
   });
+  input.value = '';
+
+  // scroll after render
+  setTimeout(() => {
+    scrollRef.value.scrollToIndex(messages.value.length - 1);
+  },1000);
 };
 
 const drawer = ref(true);

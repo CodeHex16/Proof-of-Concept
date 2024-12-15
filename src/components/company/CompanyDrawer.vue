@@ -31,9 +31,6 @@
       />
     </v-list>
   </v-navigation-drawer>
-
- 
- 
 </template>
 
 <script lang="ts" setup>
