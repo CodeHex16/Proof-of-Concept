@@ -1,0 +1,30 @@
+services:
+  # Import services from LLM-API
+  llm-api:
+    extends:
+      file: ./LLM-API/docker-compose.yml
+      service: api
+    container_name: llm-api
+
+  # Import services from Database-API
+  database-api:
+    extends:
+      file: ./Database-API/docker-compose.yml
+      service: api
+    container_name: database-api
+    
+  database-mongo:
+    extends:
+      file: ./Database-API/docker-compose.yml
+      service: mongo
+    container_name: database-mongo
+    
+  database-mongo-express:
+    extends:
+      file: ./Database-API/docker-compose.yml
+      service: mongo-express
+    container_name: database-mongo-express
+
+volumes:
+  mongodb_data:
+    external: true
