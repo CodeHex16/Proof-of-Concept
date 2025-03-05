@@ -3,7 +3,7 @@ services:
   llm-api:
     extends:
       file: ./LLM-API/docker-compose.yml
-      service: api
+      service: llm-api
     container_name: llm-api
 
   # Import services from Database-API
@@ -16,7 +16,7 @@ services:
   database-mongo:
     extends:
       file: ./Database-API/docker-compose.yml
-      service: mongo
+      service: mongo-db
     container_name: database-mongo
     
   database-mongo-express:

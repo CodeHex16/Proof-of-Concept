@@ -1,9 +1,12 @@
 [submodule "Suppl-AI"]
 	path = Suppl-AI
 	url = https://github.com/CodeHex16/Suppl-AI.git
+	branch = main
 [submodule "Database-API"]
 	path = Database-API
 	url = https://github.com/CodeHex16/Database-API.git
+	branch = main
 [submodule "LLM-API"]
 	path = LLM-API
 	url = https://github.com/CodeHex16/LLM-API.git
+	branch = main
