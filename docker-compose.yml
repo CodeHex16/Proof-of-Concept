@@ -1,25 +1,29 @@
 services:
-  # Import services from LLM-API
+  suppl-ai:
+    extends:
+      file: ./Suppl-AI/docker-compose.yml
+      service: suppl-ai
+    container_name: suppl-ai
+
   llm-api:
     extends:
       file: ./LLM-API/docker-compose.yml
       service: llm-api
     container_name: llm-api
 
-  # Import services from Database-API
   database-api:
     extends:
       file: ./Database-API/docker-compose.yml
       service: api
     container_name: database-api
     
-  database-mongo:
+  mongo-db:
     extends:
       file: ./Database-API/docker-compose.yml
       service: mongo-db
     container_name: database-mongo
     
-  database-mongo-express:
+  mongo-express:
     extends:
       file: ./Database-API/docker-compose.yml
       service: mongo-express
@@ -27,4 +31,3 @@ services:
 
 volumes:
   mongodb_data:
-    external: true
