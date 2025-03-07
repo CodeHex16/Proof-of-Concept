@@ -1,40 +1,43 @@
 # Proof-of-Concept
 
-## Usage
+## Utilizzo
 
-1. Clone the repository with all submodules
+1. Clona il repository con i suoi sottomoduli
 
-    ```bash
-    git clone https://github.com/CodeHex16/Proof-of-Concept.git --recurse-submodules
-    ```
+	```bash
+	git clone https://github.com/CodeHex16/Proof-of-Concept.git --recurse-submodules
+	```
 
-1. Create `.env` file for Database-API and LLM-API as shown in `.env.example`
+1. Crea il file `.env` per Database-API e LLM-API come mostrato in `.env.example`
+	- in `LLM-API/`
 
-    ```dosini
-    # LLM-API
-    OPENAI_API_KEY=<API_KEY>
-    ```
+		```dosini
+		# LLM-API
+		OPENAI_API_KEY=<API_KEY>
+		```
+	- in `Database-API/`
+		```dosini
+		# Database-API
+		MONGODB_URL=mongodb://<user>:<password>@mongo-db:27017
+		SECRET_KEY_JWT=<SECRET_KEY>
+		```
 
-    ```dosini
-    # Database-API
-    MONGODB_URL=mongodb://<user>:<password>@mongo-db:27017
-    SECRET_KEY_JWT=<SECRET_KEY>
-    ```
+1. Esegui il seguente comando per avviare i servizi
 
-1. Run the following commands to start the services
+	```bash
+	docker compose up -d
+	```
 
-    ```bash
-    docker compose up -d
-    ```
+1. Accedi ai servizi ai seguenti URL
 
-1. Access the services at the following URLs
+	- Suppl-AI Frontend: [http://localhost:3000](http://localhost:3000)
+	- Database-API: [http://localhost:8000](http://localhost:8000)
+		- docs: [http://localhost:8000/docs](http://localhost:8000/docs)
+	- LLM-API: [http://localhost:8001](http://localhost:8001)
+		- docs: [http://localhost:8001/docs](http://localhost:8001/docs)
+	- Mongo Express: [http://localhost:8081](http://localhost:8081)
 
-    - Suppl-AI Frontend: [http://localhost:3000](http://localhost:3000)
-    - Database-API: [http://localhost:8000](http://localhost:8000)
-    - LLM-API: [http://localhost:8001](http://localhost:8001)
-    - Mongo Express: [http://localhost:8081](http://localhost:8081)
-
-1. To stop the services, run the following command
-    ```bash
-    docker compose down
-    ```
+1. Per fermare i servizi, esegui il seguente comando
+	```bash
+	docker compose down
+	```
