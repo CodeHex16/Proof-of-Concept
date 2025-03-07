@@ -8,14 +8,14 @@
 	git clone https://github.com/CodeHex16/Proof-of-Concept.git --recurse-submodules
 	```
 
-1. Crea il file `.env` per Database-API e LLM-API come mostrato in `.env.example`
-	- in `LLM-API/`
+1. Crea il file `.env` per Database-API e LLM-API
+	- in `LLM-API/.env`
 
 		```dosini
 		# LLM-API
 		OPENAI_API_KEY=<API_KEY>
 		```
-	- in `Database-API/`
+	- in `Database-API/.env`
 		```dosini
 		# Database-API
 		MONGODB_URL=mongodb://<user>:<password>@mongo-db:27017
