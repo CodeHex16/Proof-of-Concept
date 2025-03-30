@@ -41,3 +41,8 @@
 	```bash
 	docker compose down
 	```
+
+## Interfaccia
+![login](.github/login.png)
+![clienteHome](.github/clienteHome.png)
+![chat](.github/chat.png)
